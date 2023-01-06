@@ -1,0 +1,6 @@
+[submodule "keyswitch-kicad-library"]
+	path = keyswitch-kicad-library
+	url = https://github.com/perigoso/keyswitch-kicad-library
+[submodule "42keebs-kicad"]
+	path = 42keebs-kicad
+	url = https://github.com/piit79/42keebs-kicad
