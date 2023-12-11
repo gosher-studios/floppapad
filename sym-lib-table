@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "42Keebs")(type "KiCad")(uri "${KIPRJMOD}/42keebs-kicad/symbols/42Keebs.kicad_sym")(options "")(descr ""))
+)

@@ -1,0 +1,6 @@
+[submodule "42keebs-kicad"]
+	path = 42keebs-kicad
+	url = https://github.com/piit79/42keebs-kicad
+[submodule "kiswitch"]
+	path = kiswitch
+	url = https://github.com/kiswitch/kiswitch

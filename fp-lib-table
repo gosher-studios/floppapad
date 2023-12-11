@@ -1,0 +1,6 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "42keebs")(type "KiCad")(uri "${KIPRJMOD}/42keebs-kicad/footprints")(options "")(descr ""))
+  (lib (name "kiswitch")(type "KiCad")(uri "${KIPRJMOD}/kiswitch/library/footprints/Switch_Keyboard_Hotswap_Kailh.pretty")(options "")(descr ""))
+  (lib (name "floppapad2")(type "KiCad")(uri "/Users/chxry/Documents/floppapad2")(options "")(descr ""))
+)
