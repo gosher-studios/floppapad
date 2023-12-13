@@ -1,0 +1,13 @@
+[package]
+name = "floppapad_firmware"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rp2040-hal = "0.9"
+rp2040-boot2 = "0.3"
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+usb-device = "0.2"
+usbd-serial = "0.1" # test
+ssd1306 = "0.8"
