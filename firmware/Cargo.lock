@@ -162,6 +162,7 @@ version = "0.1.0"
 dependencies = [
  "cortex-m",
  "cortex-m-rt",
+ "embedded-hal",
  "rp2040-boot2",
  "rp2040-hal",
  "ssd1306",
