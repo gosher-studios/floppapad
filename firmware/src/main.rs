@@ -1,37 +1,36 @@
 #![no_std]
 #![no_main]
-use core::mem;
-use core::panic::PanicInfo;
 use rp2040_hal::clocks::{Clock, init_clocks_and_plls};
 use rp2040_hal::pac::Peripherals;
 use rp2040_hal::sio::Sio;
 use rp2040_hal::watchdog::Watchdog;
-use rp2040_hal::timer::Timer;
 use rp2040_hal::gpio::Pins;
-use rp2040_hal::i2c::I2C;
-use rp2040_hal::usb::UsbBus;
+// use rp2040_hal::i2c::I2C;
+// use rp2040_hal::usb::UsbBus;
 use rp2040_hal::fugit::{ExtU32, RateExtU32};
-use usb_device::bus::UsbBusAllocator;
-use usb_device::device::{UsbDeviceBuilder, UsbVidPid};
-use usbd_serial::SerialPort;
+// use usb_device::bus::UsbBusAllocator;
+// use usb_device::device::{UsbDeviceBuilder, UsbVidPid};
 use embedded_hal::prelude::*;
-use ssd1306::{Ssd1306, I2CDisplayInterface};
-use ssd1306::size::DisplaySize128x32;
-use ssd1306::rotation::DisplayRotation;
-use ssd1306::mode::DisplayConfig;
+// use ssd1306::{Ssd1306, I2CDisplayInterface};
+// use ssd1306::size::DisplaySize128x32;
+// use ssd1306::rotation::DisplayRotation;
+// use ssd1306::mode::DisplayConfig;
+
+use defmt_rtt as _;
+use panic_probe as _;
 
 #[used]
 #[link_section = ".boot2"]
 static BOOT_LOADER: [u8; 256] = rp2040_boot2::BOOT_LOADER_W25Q080;
 
 const XOSC_FREQ: u32 = 12_000_000;
-const PRODUCT_NAME: &str = "floppapad";
-const PRODUCT_ID: u16 = 0xf19d;
-const VENDOR_NAME: &str = "gosher studios";
-const VENDOR_ID: u16 = 0xf109;
+// const PRODUCT_NAME: &str = "floppapad";
+// const PRODUCT_ID: u16 = 0xf19d;
+// const VENDOR_NAME: &str = "gosher studios";
+// const VENDOR_ID: u16 = 0xf109;
 
 #[rp2040_hal::entry]
-fn main() -> ! {
+unsafe fn main() -> ! {
   let mut pac = Peripherals::take().unwrap();
   let mut watchdog = Watchdog::new(pac.WATCHDOG);
   let sio = Sio::new(pac.SIO);
@@ -52,21 +51,21 @@ fn main() -> ! {
     sio.gpio_bank0,
     &mut pac.RESETS,
   );
-  let mut timer = Timer::new(pac.TIMER, &mut pac.RESETS, &clocks);
 
-  let usb_bus = UsbBusAllocator::new(UsbBus::new(
-    pac.USBCTRL_REGS,
-    pac.USBCTRL_DPRAM,
-    clocks.usb_clock,
-    true,
-    &mut pac.RESETS,
-  ));
-  let mut usb_serial = SerialPort::new(&usb_bus);
-  let mut usb_dev = UsbDeviceBuilder::new(&usb_bus, UsbVidPid(VENDOR_ID, PRODUCT_ID))
-    .product(PRODUCT_NAME)
-    .manufacturer(VENDOR_NAME)
-    .device_class(2)
-    .build();
+  // let usb_bus = UsbBusAllocator::new(UsbBus::new(
+  //   pac.USBCTRL_REGS,
+  //   pac.USBCTRL_DPRAM,
+  //   clocks.usb_clock,
+  //   true,
+  //   &mut pac.RESETS,
+  // ));
+  // let mut usb_serial = SerialPort::new(USB_BUS.assume_init_ref());
+  // let mut usb_dev =
+  //   UsbDeviceBuilder::new(USB_BUS.assume_init_ref(), UsbVidPid(VENDOR_ID, PRODUCT_ID))
+  //     .product(PRODUCT_NAME)
+  //     .manufacturer(VENDOR_NAME)
+  //     .device_class(2)
+  //     .build();
 
   // let oled_i2c = I2C::i2c0(
   //   pac.I2C0,
@@ -87,20 +86,11 @@ fn main() -> ! {
   //    oled.init().unwrap();
   //    oled.print_char('a').unwrap();
 
+  defmt::info!("hello floppa");
   watchdog.start(1.secs());
-  let mut test = false;
   loop {
-    if !test && usb_serial.dtr() {
-      test = true;
-      let _ = usb_serial.write(b"hello floppa\r\n");
-    }
-
-    if usb_dev.poll(&mut [&mut usb_serial]) {}
+    // if usb_dev.poll(&mut []) {
+    // }
     watchdog.feed();
   }
-}
-
-#[panic_handler]
-fn panic(_: &PanicInfo) -> ! {
-  rp2040_hal::halt();
 }
