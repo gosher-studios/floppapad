@@ -2,7 +2,8 @@
 target = "thumbv6m-none-eabi"
 
 [target.thumbv6m-none-eabi]
-runner = "probe-rs run --chip rp2040_selfdebug "
+# runner = "probe-rs run --chip rp2040"
+runner = "elf2uf2-rs -d"
 rustflags = [
   "-C", "linker=flip-link",
   "-C", "link-arg=--nmagic",

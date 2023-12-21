@@ -217,6 +217,7 @@ dependencies = [
  "rp2040-boot2",
  "rp2040-hal",
  "ssd1306",
+ "usb-device",
 ]
 
 [[package]]
