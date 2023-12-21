@@ -35,10 +35,12 @@ features:
   TODO
 
 
-brought to you by Alex T and Gosha T
+
 
 
 ---
+brought to you by Alex T and Gosha T
+
 This work is licensed under [Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ![cc-by-nc-sa](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)
