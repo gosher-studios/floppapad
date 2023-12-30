@@ -1,4 +1,4 @@
-use std::{env,fs};
+use std::{env, fs};
 use std::path::PathBuf;
 
 fn main() {

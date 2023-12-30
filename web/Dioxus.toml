@@ -1,0 +1,18 @@
+[application]
+name = "floppapad-web"
+default_platform = "web"
+out_dir = "dist"
+asset_dir = "public"
+
+[web.app]
+title = "floppapad"
+
+[web.watcher]
+reload_html = true
+watch_path = ["src", "public"]
+
+[web.resource]
+style = ["main.css"]
+script = []
+
+[web.resource.dev]

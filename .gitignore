@@ -32,3 +32,5 @@ fp-info-cache
 *.drl
 *.zip
 target/
+dist/
+public/main.css
