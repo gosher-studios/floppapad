@@ -33,4 +33,4 @@ fp-info-cache
 *.zip
 target/
 dist/
-public/main.css
+web/public/main.css
