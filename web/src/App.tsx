@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 
 import { AlertTriangle } from "react-feather";
@@ -8,6 +8,18 @@ const FILTER = { vendorId: 0xf109, productId: 0xf19d };
 const App = () => {
   let hid = window.navigator.hid;
   let [device, setDevice] = useState();
+  useEffect(() => {
+    if (device) {
+      device.open().then(() => device.addEventListener("inputreport", onReport));
+      console.log("start")
+      const onReport = (e) => {
+        console.log("!");
+      };
+      // device.addEventListener("inputreport", onReport);
+      return () => device.removeEventListener("inputreport", onReport);
+    }
+  }, [device]);
+  
   return (
     <div className="bg-bg text-accent h-screen font-mono flex flex-col items-center justify-center">
       <div className="fixed top-2 left-3 font-bold">
