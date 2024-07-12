@@ -1,20 +1,17 @@
-<table>
-    <tr>
-        <td><img src="meta/pcb.png" height=440></td>
-        <td>
-          <h1>floppapad</h1>
-          silly little macropad
-          <h3>Features:</h3>
-          <ul>
-            <li>10 hotswappable mx switches</li>
-            <li>128x32px oled display</li>
-            <li>rotary encoder</li>
-            <li>scriptable and extensible firmware (coming soon)</li>
-            <li>the silly caracal</li>
-          </ul>
-        </td>
-    </tr>
-</table>
+<img src="meta/pcb.png" width=380 align="left" alt="a black pcb with space for 10 mx switches, rotary encoder, oled display and usb-c port. there is a silver silhouette of a caracal in the top right" >
+
+<img src="meta/logo.svg" alt="floppapad" >
+
+silly little macropad
+
+### features
+- 10 hotswappable mx switches
+- 128x32px oled display
+- rotary encoder
+- usb c
+- scriptable and extensible firmware (coming soon)
+- the silly caracal
+<br/><br/><br/>
 
 ### Parts list
 

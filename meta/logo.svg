@@ -1,0 +1,13 @@
+<svg height="36" width="180" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text {
+      fill: black;
+    }
+    @media (prefers-color-scheme: dark) {
+      text {
+        fill: white;
+      }
+    }
+  </style>
+  <text y="28" font-size="36" font-weight="bold" font-family="Arial, Helvetica, sans-serif">floppapad</text>
+</svg> 
