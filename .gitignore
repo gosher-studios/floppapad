@@ -32,6 +32,3 @@ fp-info-cache
 *.drl
 *.zip
 target/
-node_modules/
-.parcel-cache/
-dist/
