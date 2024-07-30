@@ -6,15 +6,18 @@ edition = "2021"
 [target.thumbv6m-none-eabi.dependencies]
 rp2040-hal = { version = "0.10", features = ["critical-section-impl"] }
 rp2040-boot2 = "0.3"
+rp2040-flash = "0.5"
 cortex-m = "0.7"
 cortex-m-rt = "0.7"
 embedded-hal = "0.2"
+embedded-alloc = "0.5"
 usb-device = { version = "0.3", features = ["defmt"] }
 usbd-hid = "0.8"
 defmt = "0.3"
 defmt-rtt = "0.4"
 panic-probe = { version = "0.3", features = ["print-defmt"] }
 ssd1306 = "0.8"
+rhai = { git = "https://github.com/chxry/rhai", default-features = false, features = ["no_std", "only_i32", "no_float"] }
 
 [profile.release]
 strip = true

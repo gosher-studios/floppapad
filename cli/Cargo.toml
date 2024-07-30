@@ -1,8 +1,9 @@
 [package]
 name = "floppapad_cli"
-version = "0.1.0"
+version = "0.0.1"
 edition = "2021"
 
 [dependencies]
 rusb = "0.9"
+owo-colors = "4.0"
 floppapad_firmware = { path = "../firmware" }
